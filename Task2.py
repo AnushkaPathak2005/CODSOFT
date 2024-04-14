@@ -1,38 +1,24 @@
 Import pandas as pd
-
 Import numpy as np
-
 Sample user-item preference data
-
 data = {
-
 'User': ['User1', 'User2', 'User3', 'User4', 'User'],
-
-omg 2': [5, 4, 0, 0, 31,
-
+'omg 2': [5, 4, 0, 0, 31],
 'gader2': [4, 5, 4, 0, 2],
-
 'bawaal': [0, 3, 6, 5, 0],
-
 'coat': [2, 0, 5, 4, 0],
-
 'rocky and rani': [0, 0, 4, 5, 4]
-
 #Create a DataFrame from the data
-
 df pd.DataFrame(data)
-
 # Calculate the similarity matrix using cosine similarity
 
-similarity_matrix = np.dot(df.iloc[:, 1:].fillna(0), df.iloc[:, 1:].fillna(8).T) /(
+similarity_matrix = np.dot(df.iloc[:, 1:].fillna(0), df.iloc[:, 1:].fillna(0).T) /(
 
 np.linalg.norm(df.iloc[:, 1:].fillna(0), axis-1) [:, None] *
 
-np.linalg.norm(df.iloc[:, 1:].fillna(@).T, axis-6)
-
-Convert the similarity matrix into a DataFrame
-
+np.linalg.norm(df.iloc[:, 1:].fillna(0).T, axis-6)
 )
+Convert the similarity matrix into a DataFrame
 
 similarity_df pd.DataFrame (similarity_matrix, index-df['User'], columns=df['User'])
 Function to recommend movies to a user
@@ -52,12 +38,11 @@ new_recommendations (similar_user_preferences - user_preferences).sum(axis-1) re
 
 if len(recommendations) > num_recommendations:
 
-break
+   break
 
 return df.columns [1:] [recommendations]
 
-Test the recommendation system user_to_recommend = 'User1'
-
-I recommended_movies recommend_movies(user_to_recommend)
-
- print(f"Recommended movies for (user_to_recommend): (recommended_movies}")
+# Test the recommendation system 
+user_to_recommend = 'User1'
+recommended_movies recommend_movies(user_to_recommend)
+print(f"Recommended movies for (user_to_recommend): (recommended_movies)")
